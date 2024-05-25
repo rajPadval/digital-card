@@ -69,13 +69,14 @@ const Card = ({
   // FUNCTION TO SAVE CONTACT
   const saveContact = () => {
     const vCardData = `
-    BEGIN:VCARD
-    VERSION:3.0
-    FN:${firstName} ${lastName}
-    ORG:${companyName}
-    TEL;TYPE=work,voice:(91) ${phone}
-    EMAIL:${email}
-    END:VCARD `;
+BEGIN:VCARD
+VERSION:3.0
+FN:${firstName} ${lastName}
+ORG:${companyName}
+TEL;TYPE=work,voice:${phone}
+EMAIL:${email}
+END:VCARD
+    `.trim(); // Trim to remove any leading/trailing whitespace
 
     const blob = new Blob([vCardData], { type: "text/vcard" });
     const url = URL.createObjectURL(blob);
